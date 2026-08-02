@@ -31,33 +31,33 @@ export default function ProjectDetailPage() {
     <main className="min-h-screen">
       {/* ================= HERO ================= */}
       <section className="relative overflow-hidden border-b border-border">
-        <div className="relative mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
-          <div className="flex justify-between items-center  mb-6">
+        <div className="relative mx-auto max-w-7xl py-16 lg:py-24">
+          <div className="mb-6 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <div className="flex items-center gap-3">
-              <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-primary/10">
-                <Icon className="h-8 w-8 text-orange-500" />
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl border bg-card">
+                <Icon className="h-7 w-7 text-primary" />
               </div>
-              <h1 className="font-bold text-5xl lg:text-6xl">
+              <h1 className="text-4xl font-semibold tracking-tight lg:text-6xl">
                 {project.title}
               </h1>
             </div>
             {project.autor && (
               <div>
-                <Badge className="bg-orange-600 text-white text-sm cursor-none select-none">
+                <Badge className="cursor-none select-none rounded-lg text-sm">
                   {project.autor}
                 </Badge>
               </div>
             )}
           </div>
 
-          <p className="text-sm lg:text-[16px] text-muted-foreground max-w-3xl">
+          <p className="max-w-3xl text-sm leading-7 text-muted-foreground lg:text-base">
             {project.hero.description}
           </p>
 
           {project.hero.badges && (
             <div className="mt-8 flex flex-wrap gap-3">
               {project.hero.badges.map((badge) => (
-                <Badge key={badge.label} variant="secondary">
+                <Badge key={badge.label} variant="secondary" className="rounded-lg">
                   <badge.icon className="mr-2 h-4 w-4" />
                   {badge.label}
                 </Badge>
@@ -69,26 +69,26 @@ export default function ProjectDetailPage() {
 
       {/* ================= ORIGEN ================= */}
       {project.origin && (
-        <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-          <h2 className="font-bold text-3xl lg:text-4xl mb-6">
+        <section className="mx-auto max-w-7xl py-16 lg:py-20">
+          <h2 className="mb-6 text-3xl font-semibold tracking-tight lg:text-4xl">
             {project.origin.title}
           </h2>
           <div
             className={
               project.origin.image
-                ? "grid lg:grid-cols-3 gap-8 items-start"
+                ? "grid items-start gap-8 lg:grid-cols-3"
                 : ""
             }
           >
-            <div className="space-y-4 text-sm sm:text-lg text-muted-foreground col-span-2">
+            <div className="col-span-2 space-y-4 text-sm leading-7 text-muted-foreground sm:text-base">
               {project.origin.paragraphs.map((p, i) => (
-                <p key={i} className="lg:text-[16px]">
+                <p key={i}>
                   {p}
                 </p>
               ))}
             </div>
             {project.origin.image && (
-              <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
+              <div className="relative aspect-square overflow-hidden rounded-xl border bg-muted shadow-sm">
                 <Image
                   fill
                   src={project.origin.image || "/placeholder.svg"}
@@ -103,23 +103,23 @@ export default function ProjectDetailPage() {
 
       {/* ================= EVOLUCIÓN ================= */}
       {project.evolution && (
-        <section className="bg-muted/30 py-20">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <h2 className="font-bold text-3xl lg:text-4xl mb-12 text-center">
+        <section className="rounded-2xl bg-muted/50 py-16 lg:py-20">
+          <div className="mx-auto max-w-7xl px-4 lg:px-8">
+            <h2 className="mb-12 text-center text-3xl font-semibold tracking-tight lg:text-4xl">
               Evolución del Proyecto
             </h2>
 
-            <div className="grid gap-2 md:grid-cols-3">
+            <div className="grid gap-4 md:grid-cols-3">
               {project.evolution.map((step) => (
-                <Card key={step.step}>
+                <Card key={step.step} className="shadow-sm">
                   <CardContent className="pt-6">
-                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                      <span className="text-2xl font-bold text-orange-500">
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-accent">
+                      <span className="text-2xl font-semibold text-primary">
                         {step.step}
                       </span>
                     </div>
-                    <h3 className="font-semibold text-lg mb-3">{step.title}</h3>
-                    <p className="text-muted-foreground text-sm">
+                    <h3 className="mb-3 text-lg font-semibold">{step.title}</h3>
+                    <p className="text-sm leading-7 text-muted-foreground">
                       {step.description}
                     </p>
                   </CardContent>
@@ -132,24 +132,26 @@ export default function ProjectDetailPage() {
 
       {/* ================= PLATAFORMAS ================= */}
       {project.platform && (
-        <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-          <h2 className="font-bold text-3xl lg:text-4xl mb-12 text-center">
+        <section className="mx-auto max-w-7xl py-16 lg:py-20">
+          <h2 className="mb-12 text-center text-3xl font-semibold tracking-tight lg:text-4xl">
             Plataformas
           </h2>
           <div className="grid gap-8 lg:grid-cols-2">
             {project.platform.mobile && (
-              <Card>
+              <Card className="shadow-sm">
                 <CardContent className="p-8">
-                  <Smartphone className="h-8 w-8 text-orange-500 mb-6" />
-                  <h3 className="font-bold text-lg mb-4">Aplicación Móvil</h3>
-                  <p className="text-muted-foreground mb-6 text-sm">
+                  <Smartphone className="mb-6 h-8 w-8 text-primary" />
+                  <h3 className="mb-4 text-lg font-semibold">
+                    Aplicación Móvil
+                  </h3>
+                  <p className="mb-6 text-sm leading-7 text-muted-foreground">
                     {project.platform.mobile.description}
                   </p>
                   <ul className="space-y-2">
                     {project.platform.mobile.features.map((f) => (
                       <li
                         key={f}
-                        className="flex gap-2 text-muted-foreground text-sm"
+                        className="flex gap-2 text-sm leading-6 text-muted-foreground"
                       >
                         <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
                         {f}
@@ -161,18 +163,18 @@ export default function ProjectDetailPage() {
             )}
 
             {project.platform.web && (
-              <Card>
+              <Card className="shadow-sm">
                 <CardContent className="p-8">
-                  <Globe className="h-8 w-8 text-orange-500 mb-6" />
-                  <h3 className="font-bold text-lg mb-4">Plataforma Web</h3>
-                  <p className="text-muted-foreground mb-6 text-sm">
+                  <Globe className="mb-6 h-8 w-8 text-primary" />
+                  <h3 className="mb-4 text-lg font-semibold">Plataforma Web</h3>
+                  <p className="mb-6 text-sm leading-7 text-muted-foreground">
                     {project.platform.web.description}
                   </p>
                   <ul className="space-y-2">
                     {project.platform.web.features.map((f) => (
                       <li
                         key={f}
-                        className="flex gap-2 text-muted-foreground text-sm"
+                        className="flex gap-2 text-sm leading-6 text-muted-foreground"
                       >
                         <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
                         {f}
@@ -188,30 +190,30 @@ export default function ProjectDetailPage() {
 
       {/* ================= METODOLOGÍA ================= */}
       {project.methodology && (
-        <section className="bg-muted/30 py-20">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <Users className="h-8 w-8 text-orange-500" />
-              <h2 className="font-bold text-3xl lg:text-4xl text-center">
+        <section className="rounded-2xl bg-muted/50 py-16 lg:py-20">
+          <div className="mx-auto max-w-7xl px-4 lg:px-8">
+            <div className="mb-6 flex items-center justify-center gap-3">
+              <Users className="h-8 w-8 text-primary" />
+              <h2 className="text-center text-3xl font-semibold tracking-tight lg:text-4xl">
                 Metodología
               </h2>
             </div>
 
-            <p className="text-muted-foreground mb-12 max-w-3xl mx-auto text-xs lg:text-sm">
+            <p className="mx-auto mb-12 max-w-3xl text-sm leading-7 text-muted-foreground">
               {project.methodology.description}
             </p>
 
             {project.methodology.roles && (
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {project.methodology.roles.map((role) => (
-                  <Card key={role.title}>
+                  <Card key={role.title} className="shadow-sm">
                     <CardHeader>
                       <CardTitle className="text-lg font-medium">
                         {role.title}
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-muted-foreground text-sm">
+                      <p className="text-sm leading-7 text-muted-foreground">
                         {role.description}
                       </p>
                     </CardContent>
@@ -225,22 +227,22 @@ export default function ProjectDetailPage() {
 
       {/* ================= ALCANCE ================= */}
       {project.reach && (
-        <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-          <div className="flex items-center justify-center gap-3 mb-12">
-            <TrendingUp className="h-8 w-8 text-orange-500" />
-            <h2 className="font-bold text-3xl lg:text-4xl text-center">
+        <section className="mx-auto max-w-7xl py-16 lg:py-20">
+          <div className="mb-12 flex items-center justify-center gap-3">
+            <TrendingUp className="h-8 w-8 text-primary" />
+            <h2 className="text-center text-3xl font-semibold tracking-tight lg:text-4xl">
               Alcance e Impacto
             </h2>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {project.reach.map((section, i) => (
-              <Card key={i}>
+              <Card key={i} className="shadow-sm">
                 <CardHeader>
                   <CardTitle className="text-lg">{section.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground text-sm">
+                  <p className="text-sm leading-7 text-muted-foreground">
                     {section.description}
                   </p>
                 </CardContent>
@@ -252,43 +254,43 @@ export default function ProjectDetailPage() {
 
       {/* ================= STACK ================= */}
       {project.stack && (
-        <section className="bg-muted/30 py-20">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <h2 className="font-bold text-3xl lg:text-4xl mb-12 text-center">
+        <section className="rounded-2xl bg-muted/50 py-16 lg:py-20">
+          <div className="mx-auto max-w-7xl px-4 lg:px-8">
+            <h2 className="mb-12 text-center text-3xl font-semibold tracking-tight lg:text-4xl">
               Stack Tecnológico
             </h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {project.stack.backend && (
                 <StackCard
-                  icon={<Code2 className="text-orange-500" />}
+                  icon={<Code2 className="text-primary" />}
                   title="BackEnd"
                   label={project.stack.backend}
                 />
               )}
               {project.stack.database && (
                 <StackCard
-                  icon={<Database className="text-orange-500" />}
+                  icon={<Database className="text-primary" />}
                   title="Base de Datos"
                   label={project.stack.database}
                 />
               )}
               {project.stack.frontend && (
                 <StackCard
-                  icon={<Globe className="text-orange-500" />}
+                  icon={<Globe className="text-primary" />}
                   title="FrontEnd"
                   label={project.stack.frontend}
                 />
               )}
               {project.stack.mobile && (
                 <StackCard
-                  icon={<Smartphone className="text-orange-500" />}
-                  title="Movil"
+                  icon={<Smartphone className="text-primary" />}
+                  title="Móvil"
                   label={project.stack.mobile}
                 />
               )}
               {project.stack.infrastructure && (
                 <StackCard
-                  icon={<Code2 className="text-orange-500" />}
+                  icon={<Code2 className="text-primary" />}
                   title="Infraestructura"
                   label={project.stack.infrastructure}
                 />
@@ -296,7 +298,7 @@ export default function ProjectDetailPage() {
               {project.stack.tools && (
                 <StackCard
                   title="Herramientas"
-                  icon={<Code2 className="text-orange-500" />}
+                  icon={<Code2 className="text-primary" />}
                   label={project.stack.tools}
                 />
               )}
@@ -307,10 +309,10 @@ export default function ProjectDetailPage() {
 
       {/* ================= MEDIOS Y PRENSA ================= */}
       {project.media && project.media.length > 0 && (
-        <section className="mx-auto py-20">
-          <div className="flex items-center justify-center gap-3 mb-12">
+        <section className="mx-auto py-16 lg:py-20">
+          <div className="mb-12 flex items-center justify-center gap-3">
             <Newspaper className="h-8 w-8 text-primary" />
-            <h2 className="font-bold text-3xl lg:text-4xl text-center">
+            <h2 className="text-center text-3xl font-semibold tracking-tight lg:text-4xl">
               Prensa y Medios
             </h2>
           </div>
@@ -319,15 +321,15 @@ export default function ProjectDetailPage() {
             {project.media?.map((item, i) => (
               <Card
                 key={i}
-                className="group hover:shadow-lg transition-shadow relative"
+                className="group relative transition-shadow hover:shadow-md"
               >
                 <CardContent className="py-4">
-                  <div className="flex items-start justify-between mb-4">
+                  <div className="mb-4 flex items-start justify-between">
                     <div className="flex-1">
-                      <p className="text-xs text-muted-foreground mb-1">
+                      <p className="mb-1 text-xs text-muted-foreground">
                         {item.outlet}
                       </p>
-                      <h3 className="font-semibold text-base mb-2 group-hover:text-primary transition-colors">
+                      <h3 className="mb-2 text-base font-semibold transition-colors group-hover:text-primary">
                         {item.title}
                       </h3>
                       <p className="text-xs text-muted-foreground">
@@ -337,7 +339,7 @@ export default function ProjectDetailPage() {
                     {item.type && (
                       <Badge
                         variant="outline"
-                        className="ml-2 absolute right-2 top-5"
+                        className="absolute right-2 top-5 ml-2 rounded-lg"
                       >
                         {item.type}
                       </Badge>
@@ -361,9 +363,11 @@ export default function ProjectDetailPage() {
 
       {/* ================= ESTADO ================= */}
       {project.currentStatus && (
-        <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8 text-center">
-          <h2 className="font-bold text-3xl lg:text-4xl mb-6">Estado Actual</h2>
-          <p className="text-sm lg:text-base text-muted-foreground max-w-3xl mx-auto">
+        <section className="mx-auto max-w-7xl py-16 text-center lg:py-20">
+          <h2 className="mb-6 text-3xl font-semibold tracking-tight lg:text-4xl">
+            Estado Actual
+          </h2>
+          <p className="mx-auto max-w-3xl text-sm leading-7 text-muted-foreground lg:text-base">
             {project.currentStatus}
           </p>
         </section>
@@ -382,11 +386,11 @@ const StackCard = ({
   title: string;
 }) => {
   return (
-    <Card>
+    <Card className="shadow-sm">
       <CardHeader>
-        <CardTitle className="font-extralight">{title}</CardTitle>
+        <CardTitle className="text-base font-semibold">{title}</CardTitle>
       </CardHeader>
-      <CardContent className="pt-6 flex items-center gap-3 font-extralight text-xs">
+      <CardContent className="flex items-center gap-3 pt-6 text-sm leading-6 text-muted-foreground">
         {icon}
         <span>{label}</span>
       </CardContent>

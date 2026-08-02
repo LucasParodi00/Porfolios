@@ -5,17 +5,17 @@ import Image from "next/image";
 
 export const AboutMe = () => {
   return (
-    <section aria-label="Sobre Mi">
-      <Card>
+    <section aria-label="Sobre mí" className="py-12">
+      <Card className="overflow-hidden">
         <CardHeader>
-          <CardTitle className="uppercase text-sm sm:text-lg flex gap-2">
-            <User />
-            Sobre mi
+          <CardTitle className="flex items-center gap-2 text-base font-semibold">
+            <User className="h-5 w-5 text-primary" />
+            Sobre mí
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="sm:grid grid-cols-6 gap-10">
-            <div className="rounded-lg overflow-hidden relative h-72 col-span-2 w-64 mx-auto mb-5 sm:w-full sm:m-0 ">
+          <div className="grid gap-8 md:grid-cols-6 md:items-center">
+            <div className="relative mx-auto h-72 w-64 overflow-hidden rounded-xl border bg-muted md:col-span-2 md:m-0 md:w-full">
               <Image
                 src="/perfil.png"
                 alt="Parodi Lucas"
@@ -24,20 +24,25 @@ export const AboutMe = () => {
               />
             </div>
 
-            <div className="flex flex-col gap-6 col-span-4">
-              <p className="font-extralight text-sm  md:text-left ">
-                Argentino, desarrollador web full stack y actualmente trabajo
-                como freelancer. Soy autodidacta, responsable y tengo un buen
-                desempeño en trabajo en equipo. Me enfoco en mejorar mis
-                procesos y descartar lo que no aporta valor. He tenido la
-                oportunidad de desarrollar proyectos tanto personales como para
-                emprendimientos, lo que me ha llevado a darme cuenta de que este
-                es el camino que quiero seguir. Estoy listo para asumir nuevos
-                desafíos y seguir creciendo, tanto profesional como
-                personalmente.
+            <div className="flex flex-col gap-6 md:col-span-4">
+              <p className="text-sm italic leading-8 text-muted-foreground">
+                Argentino, Licenciado en Sistemas de Información y desarrollador
+                Full Stack. Con experiencia en el diseño, desarrollo e
+                implementación de soluciones de software para organismos
+                públicos y empresas privadas. Especializado en el desarrollo de
+                aplicaciones web escalables utilizando tecnologías del ecosistema
+                TypeScript, principalmente NestJS y Next.js, y en la aplicación
+                de arquitecturas limpias para sistemas de mediana y alta
+                complejidad.
+              </p>
+              <p className="text-sm italic leading-8 text-muted-foreground">
+                Experiencia liderando proyectos de desarrollo desde el análisis
+                de requerimientos hasta la puesta en producción, combinando
+                visión técnica con una fuerte orientación al negocio y a la
+                mejora de procesos.
               </p>
 
-              <div className="flex gap-4 flex-wrap justify-center md:justify-start ">
+              <div className="flex flex-wrap gap-3">
                 <ButtonBody
                   Icono={DownloadIcon}
                   href="/CV-ParodiLucas.pdf"
@@ -46,10 +51,10 @@ export const AboutMe = () => {
                   target="_blank"
                 />
                 <ButtonBody
-                  description="Presentacion de Parodi Lucas"
+                  description="Presentación de Parodi Lucas"
                   Icono={Presentation}
                   href="/presentacion"
-                  text="Presentacion"
+                  text="Presentación"
                   target="_parent"
                 />
               </div>

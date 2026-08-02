@@ -3,7 +3,7 @@
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode } from "react";
 import Link from "next/link";
 import { MobileNavbar } from "./NavbarMobile";
 
@@ -12,23 +12,18 @@ interface INavbarContainer {
 }
 
 export const NavbarContainer = ({ children }: INavbarContainer) => {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return <div className="h-[90px] bg-[#1B1F23]" />;
+  const { resolvedTheme, setTheme } = useTheme();
 
   return (
-    <header className="py-7 border-b border-pink-600 bg-[#1B1F23] sticky top-0 z-50 backdrop-blur-md bg-opacity-95">
+    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 py-4 backdrop-blur-xl">
       <nav
         aria-label="Navegación Principal"
-        className="max-w-[1000px] w-full mx-auto px-4 flex justify-between h-10 items-center"
+        className="mx-auto flex h-10 w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8"
       >
-        {/* Logo */}
-        <Link href="/" className="hover:opacity-80 transition-opacity">
+        <Link
+          href="/"
+          className="flex items-center gap-3 transition-opacity hover:opacity-80"
+        >
           <Image
             alt="Logo Parodi Lucas"
             src={"/logo.png"}
@@ -36,26 +31,26 @@ export const NavbarContainer = ({ children }: INavbarContainer) => {
             height={35}
             className="object-contain"
           />
+          <span className="hidden text-sm font-semibold text-foreground sm:block">
+            Parodi Lucas
+          </span>
         </Link>
 
-        {/* Desktop Menu: Oculto en mobile (hidden), visible en md (block) */}
         <div className="hidden md:block">{children}</div>
 
         <div className="flex items-center gap-2">
-          {/* Theme Toggle */}
           <button
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="p-2 rounded-full hover:bg-gray-800 transition-colors"
+            onClick={() =>
+              setTheme(resolvedTheme === "dark" ? "light" : "dark")
+            }
+            className="rounded-lg border border-border bg-card p-2 text-muted-foreground shadow-sm transition-colors hover:text-foreground"
             aria-label="Cambiar tema"
+            suppressHydrationWarning
           >
-            {theme === "dark" ? (
-              <Sun className="h-5 w-5 text-yellow-400" />
-            ) : (
-              <Moon className="h-5 w-5 text-gray-200" />
-            )}
+            <Sun className="hidden h-4 w-4 text-primary dark:block" />
+            <Moon className="h-4 w-4 dark:hidden" />
           </button>
 
-          {/* Mobile Menu Trigger: Visible en mobile, oculto en md */}
           <div className="md:hidden">
             <MobileNavbar />
           </div>

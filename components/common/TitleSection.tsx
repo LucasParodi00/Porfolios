@@ -4,32 +4,35 @@ interface ISectionTitle {
   title: string;
   subTitle?: string;
   Icon: LucideIcon;
+  id?: string;
 }
 
-export const SectionTitle = ({ title, subTitle, Icon }: ISectionTitle) => {
+export const SectionTitle = ({ title, subTitle, Icon, id }: ISectionTitle) => {
   const icono = (
     <Icon
-      size={65}
-      color="#f54900"
-      strokeWidth={3}
-      className="h-8 w-8 text-primary"
+      strokeWidth={2.4}
+      className="h-6 w-6 text-primary"
       aria-hidden="true"
     />
   );
   return (
-    <div className="mb-12 space-y-4">
+    <div className="mb-8 space-y-3">
       <div className="flex items-center gap-3">
-        <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-white dark:bg-primary/10">
+        <div className="flex h-11 w-11 items-center justify-center rounded-lg border bg-card shadow-sm">
           {icono}
         </div>
         <h2
-          id="education-heading"
-          className="text-3xl font-bold tracking-tight md:text-4xl"
+          id={id}
+          className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl"
         >
           {title}
         </h2>
       </div>
-      <p className="text-lg text-muted-foreground max-w-2xl">{subTitle}</p>
+      {subTitle && (
+        <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+          {subTitle}
+        </p>
+      )}
     </div>
   );
 };

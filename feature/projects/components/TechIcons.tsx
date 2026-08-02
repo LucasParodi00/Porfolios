@@ -19,10 +19,10 @@ export const TechIcons = ({
 
         return (
           <div key={tech} className="group/icon relative" title={tech}>
-            <div className="p-2 rounded-lg bg-secondary/50 transition-all duration-300 hover:bg-secondary hover:scale-110 hover:shadow-md">
+            <div className="p-2 rounded-lg bg-secondary/50 transition-all duration-300 hover:bg-secondary hover:scale-110 hover:shadow-md ">
               <Icon
-                // size={size}
-                className="text-foreground/70 group-hover/icon:text-foreground transition-colors duration-300 text-xl xl:text-3xl"
+                size={size}
+                className="text-foreground/70 transition-colors duration-300 group-hover/icon:text-foreground"
               />
             </div>
 

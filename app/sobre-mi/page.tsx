@@ -1,7 +1,6 @@
 "use client";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { AboutMe } from "@/feature/home/components/AboutMe";
-import { Skills } from "@/feature/home/components/Skills";
 import { TechIcons } from "@/feature/projects/components/TechIcons";
 import { Play } from "lucide-react";
 import Image from "next/image";
@@ -16,6 +15,7 @@ const AboutMePage = () => {
       <Card>
         <CardContent>
           <TechIcons
+            className="flex flex-wrap gap-3 lg:justify-between"
             technologies={[
               "react",
               "nextjs",
@@ -41,6 +41,14 @@ const AboutMePage = () => {
         <CardContent>
           <div className="relative w-full aspect-video rounded-2xl  overflow-hidden shadow-lg">
             {isPlaying ? (
+              <iframe
+                className="absolute inset-0 h-full w-full"
+                src={`https://www.youtube.com/embed/BOW_I_7Y2Y0?autoplay=1`}
+                title={"Presentación de Parodi Lucas Ivan"}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
               <button
                 onClick={() => setIsPlaying(true)}
                 className="group absolute inset-0"
@@ -48,7 +56,7 @@ const AboutMePage = () => {
               >
                 <Image
                   src={`https://img.youtube.com/vi/BOW_I_7Y2Y0/maxresdefault.jpg`}
-                  alt={"Parodi Lucas - Presentacion"}
+                  alt={"Parodi Lucas - Presentación"}
                   fill
                   className="object-cover"
                   priority
@@ -62,14 +70,6 @@ const AboutMePage = () => {
                   </div>
                 </div>
               </button>
-            ) : (
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src={`https://www.youtube.com/embed/BOW_I_7Y2Y0`}
-                title={"asdasd"}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
             )}
           </div>
         </CardContent>

@@ -15,6 +15,15 @@ interface IEducation {
 
 const educationData: IEducation[] = [
   {
+    title: "Licenciatura en Sistemas de Información",
+    establishment: "Universidad Nacional del Nordeste",
+    date: "Finalizada",
+    src: "/unne.png",
+    description:
+      "Formación universitaria orientada al análisis, diseño e implementación de sistemas de información, con foco en procesos, datos, ingeniería de software y soluciones tecnológicas para organizaciones.",
+    type: "university",
+  },
+  {
     title: "Diplomatura en Ciencia de Datos",
     establishment: "Universidad Nacional del Nordeste",
     date: "2024 - 2025",
@@ -33,39 +42,57 @@ const educationData: IEducation[] = [
     type: "university",
   },
   {
-    title: "Git y GitHub",
-    establishment: "Udemy",
+    title: "Desarrollo con Inteligencia Artificial",
+    establishment: "BIG School",
     date: "2024",
-    src: "/udemy.png",
+    src: "/logo.png",
     description:
-      "Formación específica en control de versiones con Git y uso de GitHub, abarcando manejo de repositorios, ramas, merges, resolución de conflictos y buenas prácticas para el trabajo colaborativo en proyectos de software.",
+      "Formación orientada al uso de inteligencia artificial aplicada al desarrollo, automatización de tareas y mejora de flujos de trabajo técnicos.",
     type: "online",
   },
   {
-    title: "Desarrollador Web Full Stack",
-    establishment: "Talentos Digitales",
+    title: "Bootcamp Microsoft Azure AZ-204",
+    establishment: "Microsoft Azure",
+    date: "2024",
+    src: "/logo.png",
+    description:
+      "Capacitación en desarrollo de soluciones cloud sobre Azure, servicios administrados, despliegues y fundamentos para aplicaciones modernas en la nube.",
+    type: "online",
+  },
+  {
+    title: "Bootcamp Desarrollo de Software",
+    establishment: "Devlights",
+    date: "2024",
+    src: "/logo.png",
+    description:
+      "Bootcamp orientado al desarrollo full stack con Next.js, Node.js y PostgreSQL, reforzando buenas prácticas de desarrollo web moderno.",
+    type: "online",
+  },
+  {
+    title: "Talentos Digitales",
+    establishment: "UNNE / TelCo / Banco de Corrientes",
     date: "2024",
     src: "/td.png",
     description:
-      "Formación en desarrollo web full stack con React para frontend y Node.js con Express para backend, manejo básico de Git y control de versiones, aplicando conceptos fundamentales para la creación de aplicaciones web.",
+      "Formación en desarrollo web full stack con React, Node.js y MongoDB, aplicando conceptos fundamentales para la creación de aplicaciones web.",
     type: "online",
   },
   {
-    title: "Desarrollo Web",
+    title: "Git y GitHub Completo",
     establishment: "Udemy",
-    date: "2022 - 2023",
+    date: "2024",
     src: "/udemy.png",
     description:
-      "Capacitación práctica en desarrollo web full stack utilizando React, Node.js y Firebase, implementación de autenticación (Google Auth), manejo de estados y componentes, estilado con Tailwind CSS y uso de componentes de Google, aplicando buenas prácticas para el desarrollo de aplicaciones web modernas.",
+      "Formación específica en control de versiones, repositorios, ramas, merges, resolución de conflictos y buenas prácticas de trabajo colaborativo.",
     type: "online",
   },
   {
-    title: "Desarrollo Web con PHP",
-    establishment: "Udemy",
-    date: "2021",
-    src: "/udemy.png",
+    title: "Inglés Técnico",
+    establishment: "Universidad de Buenos Aires",
+    date: "Formación continua",
+    src: "/logo.png",
     description:
-      "Formación inicial en desarrollo web, abarcando HTML, CSS, Sass y PHP, implementación de sistemas de autenticación, manejo de formularios y bases de datos, y desarrollo de aplicaciones utilizando el framework CodeIgniter, incorporando fundamentos clave de la programación web.",
+      "Lectura y comprensión de documentación técnica en inglés, orientada al trabajo con documentación oficial, APIs, librerías y herramientas de desarrollo.",
     type: "online",
   },
 ];
@@ -75,10 +102,15 @@ export const Education = () => {
     <section
       id="educacion"
       aria-labelledby="education-heading"
-      className="container mx-auto max-w-5xl py-16  md:py-24"
+      className="py-12"
     >
-      <SectionTitle Icon={GraduationCap} title="Formacion" />
-      <div className="space-y-6">
+      <SectionTitle
+        Icon={GraduationCap}
+        id="education-heading"
+        title="Formación"
+        subTitle="Base universitaria, formación técnica continua y actualización en IA, cloud y desarrollo full stack."
+      />
+      <div className="grid gap-4 lg:grid-cols-2">
         {educationData.map((item, index) => (
           <EducationCard key={`${item.title}-${index}`} {...item} />
         ))}
@@ -102,11 +134,11 @@ const EducationCard = ({
   };
 
   return (
-    <Card className="group overflow-hidden transition-all hover:shadow-lg">
+    <Card className="group overflow-hidden transition-all hover:-translate-y-0.5 hover:shadow-md">
       <CardContent>
         <article className="flex flex-col gap-4 md:flex-row md:items-start md:gap-6">
           <div className="shrink-0">
-            <div className="relative h-16 w-16 overflow-hidden rounded-lg bg-white ring-1 ring-border transition-all group-hover:ring-2 group-hover:ring-primary/20 flex justify-between items-center">
+              <div className="relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-lg bg-white ring-1 ring-border transition-all group-hover:ring-primary/30">
               <Image
                 src={src || "/placeholder.svg"}
                 alt={`Logo de ${establishment}`}
@@ -121,7 +153,7 @@ const EducationCard = ({
             <div className="space-y-2">
               <div className="flex flex-col sm:flex-row flex-wrap items-start justify-between gap-2">
                 <div className="space-y-1 flex-1 min-w-0">
-                  <h3 className="text-sm font-semibold leading-tight text-balance sm:text-[16px]">
+                  <h3 className="text-sm font-semibold leading-tight text-balance">
                     {title}
                   </h3>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -132,7 +164,7 @@ const EducationCard = ({
                     <span className="text-xs sm:text-sm">{establishment}</span>
                   </div>
                 </div>
-                <Badge variant="secondary" className="shrink-0">
+                <Badge variant="secondary" className="shrink-0 rounded-lg">
                   {typeLabels[type]}
                 </Badge>
               </div>
@@ -143,7 +175,7 @@ const EducationCard = ({
               </div>
             </div>
 
-            <p className="text-xs leading-relaxed text-muted-foreground text-pretty">
+            <p className="text-xs leading-6 text-muted-foreground text-pretty">
               {description}
             </p>
           </div>

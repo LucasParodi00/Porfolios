@@ -149,20 +149,21 @@ export const projectsDetail: ProjectDetail[] = [
     autor: "By Varlok",
     hero: {
       description:
-        "Sistema Integrado de Documentos Digitales orientado a la digitalización, gestión y compartición segura de documentación interna en oficinas gubernamentales.",
+        "Plataforma de expedientes digitales, descargos, gestión documental y trazabilidad administrativa orientada a ordenar procesos internos con información sensible y múltiples actores.",
       badges: [
-        { label: "En Producción", icon: Database },
-        { label: "Gestión Documental", icon: Users },
-        { label: "Automatización", icon: TrendingUp },
-        { label: "Usuarios Reales", icon: Users },
+        { label: "Expedientes Digitales", icon: Database },
+        { label: "Gestión Documental", icon: File },
+        { label: "Trazabilidad", icon: TrendingUp },
+        { label: "Interconsultas Seguras", icon: Users },
       ],
     },
 
     origin: {
-      title: "Origen del Proyecto",
+      title: "Problema a Resolver",
       paragraphs: [
-        "SIDD surge a partir de la necesidad concreta de una oficina gubernamental de contar con toda su documentación de forma digital, centralizada y accesible las 24 horas del día.",
-        "El objetivo principal fue eliminar la dependencia del papel físico, resolver los problemas de archivado tradicional y facilitar el acceso compartido a la información entre los distintos miembros de la organización.",
+        "SIDD nace para resolver un problema frecuente en oficinas con alto volumen de trámites: correos dispersos, PDFs adjuntos, carpetas físicas, planillas, respuestas difíciles de seguir y poca visibilidad sobre el estado real de cada caso.",
+        "La solución toma cada descargo o solicitud recibida y la transforma en un expediente digital con número único, ciudadano vinculado, documentos, mensajes, notas internas, estados, responsables y una línea de tiempo auditable.",
+        "El enfoque del proyecto es mantener el canal conocido por las personas, como el correo electrónico o la carga manual, pero centralizar toda la gestión interna en una plataforma con trazabilidad, permisos y control de acceso.",
       ],
       image: "/sidd.png",
     },
@@ -170,78 +171,92 @@ export const projectsDetail: ProjectDetail[] = [
     evolution: [
       {
         step: 1,
-        title: "Digitalización Inicial",
+        title: "Expediente como Núcleo",
         description:
-          "El sistema comenzó enfocándose en la digitalización y organización básica de documentos y carpetas internas.",
+          "Se definió el expediente como contenedor principal del proceso: asunto, cuerpo inicial, ciudadano, actas o referencias, adjuntos, estado actual y número secuencial seguro.",
       },
       {
         step: 2,
-        title: "Control de Accesos",
+        title: "Trazabilidad y Colaboración",
         description:
-          "Se incorporó un sistema de roles y permisos para garantizar el acceso preciso a cada documento según el perfil del usuario.",
+          "Se incorporaron mensajes públicos, notas internas, cambios de estado, timeline, auditoría e interconsultas para solicitar colaboración externa sin exponer información privada.",
       },
       {
         step: 3,
-        title: "Automatización e Integraciones",
+        title: "Acceso Seguro y Contrato API",
         description:
-          "Se integraron automatizaciones con n8n y un bot de WhatsApp para consultas rápidas sobre expedientes y documentos.",
+          "Se trabajó sobre enlaces públicos con token y PIN, contenido compartido configurable y documentación OpenAPI/Swagger para mantener alineado el contrato entre backend y frontend.",
       },
     ],
 
     platform: {
       web: {
         description:
-          "Aplicación web desarrollada con Next.js para la gestión integral de documentos y usuarios.",
+          "Aplicación web para operadores internos, pensada para gestionar el ciclo de vida completo de un expediente y consultar información sensible de forma ordenada.",
         features: [
-          "Gestión completa del ciclo de vida del documento",
-          "Sistema de roles y permisos",
-          "Compartición de carpetas y archivos por correo",
-          "Organización por áreas y carpetas",
-          "Acceso 24/7 a la documentación",
+          "Alta manual o ingreso por canales conocidos como correo electrónico",
+          "Generación de expediente digital con número único y secuencial",
+          "Mensajes públicos, respuestas oficiales y solicitud de documentación",
+          "Notas internas privadas invisibles para el ciudadano",
+          "Interconsultas seguras con oficinas externas mediante token y PIN",
+          "Gestión documental reutilizable para carpetas, archivos y adjuntos",
+          "Estados independientes, timeline y auditoría de acciones relevantes",
+          "Consulta pública controlada sin exponer información interna",
         ],
       },
     },
 
     stack: {
-      backend: "NestJS, TypeScript",
+      backend: "NestJS, TypeScript, Clean Architecture",
       database: "PostgreSQL",
-      frontend: "Next.js, Tailwind CSS, shadcn/ui",
+      frontend: "Next.js, React, Tailwind CSS",
       mobile: "Responsive Web",
-      infrastructure: "Docker, Ubuntu",
-      tools: "Git, GitHub",
+      infrastructure: "Docker, Linux, Nginx",
+      tools: "Git, GitHub, Postman, Swagger/OpenAPI",
     },
 
     methodology: {
       description:
-        "El proyecto fue desarrollado bajo la metodología ágil Scrum, con entregas iterativas y feedback constante de los usuarios finales.",
+        "El proyecto se trabajó de forma evolutiva, partiendo del análisis funcional del proceso real y transformándolo en módulos técnicos con responsabilidades claras: expediente, mensajes, notas, interconsultas, documentos, estados y auditoría.",
       roles: [
         {
-          title: "Scrum Master / Desarrollador",
+          title: "Full Stack Developer",
           description:
-            "Lucas Parodi liderando el proceso ágil y participando activamente en el desarrollo.",
+            "Diseño funcional, arquitectura backend, desarrollo frontend y definición del contrato entre API y cliente.",
         },
         {
-          title: "Stakeholder",
-          description: "Profesional del área legal impulsor del proyecto.",
+          title: "Análisis de Proceso",
+          description:
+            "Modelado del flujo de trabajo, separación entre información pública e interna, y definición de reglas de trazabilidad.",
         },
         {
-          title: "Product Owners",
+          title: "Seguridad y Acceso",
           description:
-            "Abogados, escribanos y contadores que trabajan en la oficina.",
+            "Diseño de interconsultas con tokens, PIN, vencimiento, revocación y contenido compartido configurable.",
         },
       ],
     },
 
     reach: [
       {
-        title: "Implementación Institucional",
+        title: "Centralización del Trámite",
         description:
-          "Sistema utilizado por los distintos miembros de una oficina gubernamental.",
+          "Permite que correos, adjuntos, mensajes, notas, respuestas, estados y documentos vivan dentro de un único expediente digital.",
+      },
+      {
+        title: "Control de Información Sensible",
+        description:
+          "Diferencia estrictamente la información pública de la interna, evitando exponer notas operativas, auditoría o datos reservados.",
+      },
+      {
+        title: "Colaboración Externa",
+        description:
+          "Permite consultar a terceros mediante enlaces seguros sin transferir la propiedad del expediente ni publicar automáticamente sus respuestas.",
       },
     ],
 
     currentStatus:
-      "El sistema se encuentra en producción y es utilizado activamente para la gestión diaria de documentación interna.",
+      "El sistema se encuentra en desarrollo evolutivo, con foco en consolidar el flujo de expedientes, gestión documental, contrato API y experiencia de operación interna.",
   },
   {
     slug: "pulguitas",

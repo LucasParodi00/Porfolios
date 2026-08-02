@@ -4,7 +4,7 @@ import { Play } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { BsGithub, BsLinkedin } from "react-icons/bs";
+import { BsLinkedin } from "react-icons/bs";
 
 const Presentacion = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -17,6 +17,14 @@ const Presentacion = () => {
         <CardContent>
           <div className="relative w-full aspect-video rounded-2xl  overflow-hidden shadow-lg">
             {isPlaying ? (
+              <iframe
+                className="absolute inset-0 h-full w-full"
+                src={`https://www.youtube.com/embed/BOW_I_7Y2Y0?autoplay=1`}
+                title={"Presentación de Parodi Lucas Ivan"}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
               <button
                 onClick={() => setIsPlaying(true)}
                 className="group absolute inset-0"
@@ -24,7 +32,7 @@ const Presentacion = () => {
               >
                 <Image
                   src={`https://img.youtube.com/vi/BOW_I_7Y2Y0/maxresdefault.jpg`}
-                  alt={"Parodi Lucas - Presentacion"}
+                  alt={"Parodi Lucas - Presentación"}
                   fill
                   className="object-cover"
                   priority
@@ -38,14 +46,6 @@ const Presentacion = () => {
                   </div>
                 </div>
               </button>
-            ) : (
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src={`https://www.youtube.com/embed/BOW_I_7Y2Y0`}
-                title={"asdasd"}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
             )}
           </div>
         </CardContent>
@@ -68,8 +68,8 @@ const Presentacion = () => {
             </div>
             <div>
               <h2 className="text-sm font-extralight">
-                Parodi Lucas - Licenciado en Sistema - Desarrollador Web Full
-                Stack
+                Parodi Lucas - Licenciado en Sistemas de Información -
+                Desarrollador Web Full Stack
               </h2>
               <Link
                 href={"https://www.linkedin.com/in/parodi-lucas-ivan/"}

@@ -4,45 +4,51 @@ import { FaInstagram, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#1B1F23] py-10 text-white text-center">
-      <div className="h-64">
-        <div className="flex justify-center gap-10 ">
+    <footer className="border-t border-border bg-card py-12 text-center">
+      <div className="mx-auto max-w-6xl px-4">
+        <p className="text-sm font-medium text-foreground">Parodi Lucas Ivan</p>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Licenciado en Sistemas - Desarrollador de software
+        </p>
+        <div className="mt-8 flex justify-center gap-5">
           <Link
             target="_blank"
             href="mailto:lucasparodi00@gmail.com"
-            className="hover:text-orange-600 duration-300"
+            aria-label="Enviar correo a Parodi Lucas"
+            className="rounded-lg border border-border p-3 text-muted-foreground transition-colors hover:text-primary"
           >
-            <Mail size={40} />
+            <Mail size={22} />
           </Link>
           <Link
             target="_blank"
             href={
               "https://www.instagram.com/parodilucas_?igsh=NzNxZnp3NWRocm5w&utm_source=qr"
             }
-            className="hover:text-orange-600 duration-300"
+            aria-label="Instagram de Parodi Lucas"
+            className="rounded-lg border border-border p-3 text-muted-foreground transition-colors hover:text-primary"
           >
-            <FaInstagram size={40} />
+            <FaInstagram size={22} />
           </Link>
           <Link
             target="_blank"
             href={"https://www.linkedin.com/in/parodi-lucas-ivan/"}
-            className="hover:text-orange-600 duration-300"
+            aria-label="LinkedIn de Parodi Lucas"
+            className="rounded-lg border border-border p-3 text-muted-foreground transition-colors hover:text-primary"
           >
-            <FaLinkedin size={40} />
+            <FaLinkedin size={22} />
           </Link>
           <Link
             target="_blank"
-            href={"https://www.linkedin.com/in/parodi-lucas-ivan/"}
-            className="hover:text-orange-600 duration-300"
+            href={"https://x.com/parodilucas_"}
+            aria-label="X de Parodi Lucas"
+            className="rounded-lg border border-border p-3 text-muted-foreground transition-colors hover:text-primary"
           >
-            <FaXTwitter size={40} />
+            <FaXTwitter size={22} />
           </Link>
         </div>
-        <div className="mt-10 ">
-          <span className="hover:text-orange-400 duration-300">
-            lucasparodi00@gmail.com
-          </span>
-        </div>
+        <p className="mt-8 text-xs text-muted-foreground">
+          lucasparodi00@gmail.com
+        </p>
       </div>
     </footer>
   );

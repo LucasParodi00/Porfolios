@@ -22,19 +22,20 @@ export const ButtonBody = ({
 }: IButtonBody) => {
   const icono = <Icono />;
   return (
-    <Link
-      href={href}
-      target={target}
-      rel="noopener noreferrer"
-      aria-label={description}
+    <Button
+      asChild
+      variant={"outline"}
+      className={`h-11 rounded-lg border-border bg-card px-5 text-sm text-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/50 hover:bg-accent hover:text-accent-foreground hover:shadow-md ${style}`}
     >
-      <Button
-        variant={"outline"}
-        className={`bg-white px-7 py-5 border border-black/40 flex gap-6 ${style}`}
+      <Link
+        href={href}
+        target={target}
+        rel={target === "_blank" ? "noopener noreferrer" : undefined}
+        aria-label={description}
       >
-        <div>{icono}</div>
+        <div className="text-primary">{icono}</div>
         <span>{text}</span>
-      </Button>
-    </Link>
+      </Link>
+    </Button>
   );
 };

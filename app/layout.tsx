@@ -25,19 +25,19 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Parodi Lucas | Licenciado en Sistemas",
+    default: "Parodi Lucas Ivan | Desarrollador de Software",
     template: "%s | Parodi Lucas",
   },
   alternates: {
     canonical: "./",
   },
   description:
-    "Portfolio de Parodi Lucas, Licenciado en Sistemas y Desarrollador Web Full Stack. Mejorando procesos y descartando lo que no aporta valor.",
+    "Portfolio de Parodi Lucas Ivan, Licenciado en Sistemas de Información y Desarrollador de Software Full Stack especializado en soluciones web, expedientes digitales y mejora de procesos.",
   keywords: [
     "Desarrollador Web",
     "Full Stack",
     "Sistemas",
-    "Licenciado",
+    "Licenciado en Sistemas de Información",
     "Freelance",
     "unne",
     "Analista Programador",
@@ -47,15 +47,17 @@ export const metadata: Metadata = {
     "React",
     "Next.js",
     "Nest.js",
+    "Clean Architecture",
+    "Arquitectura Hexagonal",
     "FrontEnd",
     "BackEnd",
   ],
   authors: [{ name: "Parodi Lucas", url: baseUrl }],
   creator: "Parodi Lucas",
   openGraph: {
-    title: "Parodi Lucas | Licenciado en Sistemas",
+    title: "Parodi Lucas Ivan | Desarrollador de Software",
     description:
-      "Portfolio de Parodi Lucas. Mejorando procesos y descartando lo que no aporta valor.",
+      "Portfolio de Parodi Lucas Ivan. Soluciones web, expedientes digitales y software orientado a mejorar procesos.",
     url: baseUrl,
     siteName: "Portfolio Parodi Lucas",
     images: [
@@ -63,7 +65,7 @@ export const metadata: Metadata = {
         url: "/perfil2.png",
         width: 1200,
         height: 630,
-        alt: "Parodi Lucas - Desarrollador Web Full Stack",
+        alt: "Parodi Lucas Ivan - Desarrollador de Software Full Stack",
       },
     ],
     locale: "es_AR",
@@ -120,8 +122,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <div className="bg-[#f2f2f7] dark:bg-black min-h-screen">
-            <div className="max-w-[900px] m-auto px-2 pb-10">{children}</div>
+          <div className="min-h-screen bg-background">
+            <div className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 lg:px-8">
+              {children}
+            </div>
           </div>
           <Footer />
         </ThemeProvider>

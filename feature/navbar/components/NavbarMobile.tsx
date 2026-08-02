@@ -13,11 +13,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 
-// Definimos los items aquí o impórtalos si los tienes en un archivo de constantes
 const navItems = [
   { name: "Inicio", href: "/" },
   { name: "Proyectos", href: "/proyectos" },
-  { name: "Sobre Mi", href: "/sobre-mi" },
+  { name: "Sobre Mí", href: "/sobre-mi" },
 ];
 
 export const MobileNavbar = () => {
@@ -31,7 +30,7 @@ export const MobileNavbar = () => {
         <Button
           variant="ghost"
           size="icon"
-          className="md:hidden text-white hover:bg-white/10"
+          className="text-muted-foreground hover:bg-accent hover:text-foreground md:hidden"
         >
           <Menu className="h-6 w-6" />
           <span className="sr-only">Abrir menú</span>
@@ -41,17 +40,15 @@ export const MobileNavbar = () => {
       {/* El contenido del sidebar */}
       <SheetContent
         side="right"
-        className="bg-[#1B1F23] border-pink-600 w-[300px] sm:w-[400px]"
+        className="w-[300px] border-border bg-background sm:w-[400px]"
       >
-        {/* Título para accesibilidad (puede estar oculto visualmente si prefieres) */}
         <SheetTitle className="sr-only">Menú de navegación</SheetTitle>
 
         <div className="flex flex-col h-full py-6">
-          {/* Logo dentro del menú móvil (opcional) */}
           <div className="mb-8 flex justify-center">
             <Image
               alt="Logo Parodi Lucas"
-              src={"/logo2.png"}
+              src={"/logo.png"}
               width={50}
               height={50}
               className="object-contain"
@@ -71,11 +68,11 @@ export const MobileNavbar = () => {
                   href={item.href}
                   onClick={() => setOpen(false)} // Cerramos el menú al hacer click
                   className={`
-                    text-2xl font-medium uppercase transition-colors duration-200
+                    rounded-lg px-4 py-2 text-xl font-medium transition-colors duration-200
                     ${
                       isActive
-                        ? "text-orange-500"
-                        : "text-white hover:text-white/70"
+                        ? "bg-accent text-accent-foreground"
+                        : "text-muted-foreground hover:text-foreground"
                     }
                   `}
                 >
